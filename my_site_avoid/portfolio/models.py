@@ -7,3 +7,6 @@ class PortfolioCreation(models.Model):
     date_created = models.DateTimeField(null=True, auto_now_add=True)
     notes = models.TextField(blank=True)
     media = models.ImageField()
+
+     def __unicode__(self):
+        return self.name
