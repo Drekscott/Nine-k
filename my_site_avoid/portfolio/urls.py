@@ -7,6 +7,6 @@ from . import views
 
 urlpatterns = [
     # URL pattern for the UserListView
-    url(regex=r'^$', view=views.PortfolioCreationView.as_view(), name='detail'),
+    url(r'^$', view=views.PortfolioCreationView, name='list', ),
 
 ]
