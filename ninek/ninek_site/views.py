@@ -8,9 +8,12 @@ def about(request):
     return render(request,'ninek_site/about.html', cont_dict)
 def index(request):
 
-    category_list = Category.objects.order_by('-views')[:3]
-    context_dict = {'categories': category_list}
 
+    context_dict = {}
+    page_list = Page.objects.all().order_by('category', 'likes')
+    category_list = Category.objects.order_by('-views')[:3]
+    context_dict['categories'] = category_list
+    context_dict['pages'] = page_list
     return render(request, 'ninek_site/index.html', context_dict)
 
 def category(request, category_name_slug):

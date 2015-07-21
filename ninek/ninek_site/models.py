@@ -23,12 +23,19 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+    def latest_post(self):
+        page = self.page_set.order_by('-date_created')
+        if page:
+            return page[0]
+        return None
+
 class Page(models.Model):
 
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=120)
     author_name = models.CharField(max_length=120)
     date_created = models.DateTimeField(auto_now_add=True)
+    likes = models.IntegerField(default=0)
     upload_image = models.ImageField(upload_to='ninek_site')
     page_content = models.TextField(max_length=None)
     slug = models.SlugField(unique=True)
