@@ -1,0 +1,11 @@
+<h1>$Ninek$</h1>
+
+<h3>Take a Gander</h3>
+    {% if categories %}
+
+    {% for category in categories %}
+
+    <li><a href="#">{{ category.name }}</a></li>
+
+    {% endfor %}
+    {% endif %}
