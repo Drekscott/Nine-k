@@ -1,5 +1,6 @@
 from django.db import models
-from autoslug import AutoSlugField
+from django.template.defaultfilters import slugify
+
 # Create your models here.
 class About(models.Model):
 
@@ -13,7 +14,7 @@ class Category(models.Model):
 
     name = models.CharField(max_length=120)
     views = models.IntegerField(default=0)
-    slug = models.AutoSlugField(populate_from='name')
+    slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
                 self.slug = slugify(self.name)
