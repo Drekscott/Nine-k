@@ -1,0 +1,8 @@
+{% extends 'base.html'%}
+{% block body_block %}
+<br>
+<h2>{{ page_title }}</h2>
+<h3>By: {{ page.author_name }} | {{ page.date_created }} </h3>
+{{ page.upload_image}}
+<p>{{ page.page_content}}
+  {% endblock %}

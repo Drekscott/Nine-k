@@ -14,8 +14,9 @@ class Migration(migrations.Migration):
             name='About',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('about_pic', models.ImageField(upload_to=None)),
+                ('about_name', models.CharField(max_length=120)),
                 ('about_me', models.TextField()),
+                ('about_pic', models.ImageField(upload_to=None)),
             ],
         ),
         migrations.CreateModel(
@@ -23,6 +24,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=120)),
+                ('views', models.IntegerField(default=0)),
+                ('slug', models.SlugField(unique=True)),
             ],
         ),
         migrations.CreateModel(

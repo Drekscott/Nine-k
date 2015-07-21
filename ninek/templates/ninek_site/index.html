@@ -1,11 +1,11 @@
-<h1>$Ninek$</h1>
+{% extends 'base.html' %}
 
-<h3>Take a Gander</h3>
+
     {% if categories %}
 
     {% for category in categories %}
 
-    <li><a href="#">{{ category.name }}</a></li>
+    <li><a href="{% url 'ninek:category' category.slug %}">{{ category.name }}</a></li>
 
     {% endfor %}
     {% endif %}

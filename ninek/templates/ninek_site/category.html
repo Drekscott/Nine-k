@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+    {% block body_block %}
+        <h1>{{ category_name }}</h1>
+        {% if category %}
+            {% if pages %}
+            <ul>
+                {% for page in pages %}
+                <h2><a href="{% url 'ninek:page' page.slug %}">{{ page.title }}</a></h2>
+                <h3>By: {{ page.author_name }} | {{ page.date_created }} </h3>
+                {{ page.upload_image}}
+                <p>{{ page.page_content|truncatewords_html:7 }}
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>No pages currently in category.</strong>
+            {% endif %}
+        {% else %}
+            The specified category {{ category_name }} does not exist!
+        {% endif %}
+    {% endblock %}

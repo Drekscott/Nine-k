@@ -2,19 +2,18 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import uuid
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ninek_site', '0006_category_slug'),
+        ('ninek_site', '0003_auto_20150721_1723'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='category',
+            model_name='page',
             name='slug',
-            field=models.SlugField(default=uuid.uuid4, unique=True),
+            field=models.SlugField(unique=True),
         ),
     ]

@@ -6,7 +6,7 @@ class About(models.Model):
 
     about_name = models.CharField(max_length=120)
     about_me = models.TextField(max_length=None)
-    about_pic = models.ImageField(upload_to=None)
+    about_pic = models.ImageField(upload_to='ninek_site')
 
     def __unicode__(self):
         return self.about_name
@@ -29,8 +29,9 @@ class Page(models.Model):
     title = models.CharField(max_length=120)
     author_name = models.CharField(max_length=120)
     date_created = models.DateTimeField(auto_now_add=True)
-    upload_image = models.ImageField(upload_to=None)
+    upload_image = models.ImageField(upload_to='ninek_site')
     page_content = models.TextField(max_length=None)
+    slug = models.SlugField(unique=True)
 
     def __unicode__(self):
         return self.title

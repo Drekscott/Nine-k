@@ -34,3 +34,17 @@ def category(request, category_name_slug):
 
 
     return render(request, 'ninek_site/category.html', context_dict)
+    
+def page(request, page_name_slug):
+    context_dict = {}
+    
+    try:
+        
+        page = Page.objects.get(slug=page_name_slug)
+        context_dict['page_title'] = page.title
+        categories = Category.objects.filter(page=page)
+        context_dict['page'] = page
+    except Page.DoesNotExist:
+        pass
+    return render(request, 'ninek_site/page.html', context_dict)
+
