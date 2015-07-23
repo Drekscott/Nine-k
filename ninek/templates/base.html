@@ -1,5 +1,5 @@
 {% load staticfiles %}
-
+ {% load ninek_extras %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +67,17 @@ body {background-color:lightgray}
         <!-- /.container -->
     </nav>
     <br>
+    <div class="col-sm-3 col-md-2 sidebar">
 
+      {% if categories %}
+          {% for category in categories %}
+              <li><a href="{% url 'ninek:category' category.slug %}">{{ category.name }}</a></li>
+          {% endfor %}
+      {% else %}
+          <li>No categories at present.</li>
+     {% endif %}
+
+    </div>
 {% block content %}{% endblock %}
 
     <!-- Footer -->

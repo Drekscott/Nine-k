@@ -18,6 +18,11 @@ def index(request):
     context_dict['pages'] = page_list
     return render(request, 'ninek_site/index.html', context_dict)
 
+def get_cat_list():
+    category_list = Category.objects.all()
+    context_dict['categories'] = category_list
+    return render('ninek/category_list.html', context_dict)
+
 def category(request, category_name_slug):
     context_dict = {}
 
