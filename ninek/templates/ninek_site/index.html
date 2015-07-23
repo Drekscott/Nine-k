@@ -1,13 +1,54 @@
 {% extends 'base.html' %}
-{% block body_block%}
-{% for category in categories %}
-  <br>
-  <h2>{{ category.name }}</h2>
-    {% for page in pages %}
-    <h2><a href="{% url 'ninek:page' page.slug %}">{{ page.title }}</a></h2>
-    <h4>By: {{ page.author_name }} | {{ page.date_created }} </h4>
-    <p>{{ page.page_content|truncatewords_html:12 }}
-    {% endfor %}
-{% endfor %}
+
+{% block content%}
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" img src="background-image: '/Users/dreytonscott/Django_Projects/Nine-k/ninek/static/James Rawson 11.png'">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>[NINEK]</h1>
+                    <hr class="small">
+                    <span class="subheading">You love us...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+  <div>
+    <h3>About me</h3>
+  {% for about_me in about_mes%}
+  <h4>{{ about_me.about_name }}</h4>
+  <p>{{ about_me.about_me }}</p>
+  <hr>
+  {% endfor %}
+  </div>
+
+  <!-- Main Content -->
+  <h2>Top Stories</h2>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for page in pages %}
+              <div class="post-preview">
+                      <h2 class="post-title">
+                        <a href="{% url 'ninek:page' page.slug %}">{{ page.title }}</a>
+                      </h2>
+
+                  <p class="post-meta">Posted by {{ page.author_name }} | {{ page.date_created }}</p>
+              </div>
+              <hr>
+              {% endfor %}
+              <!-- Pager -->
+              <ul class="pager">
+                  <li class="next">
+                      <a href="#">Older Posts &rarr;</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+  <hr>
 {% endblock %}
-  

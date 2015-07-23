@@ -2,11 +2,12 @@ from django.db import models
 from django.template.defaultfilters import slugify
 
 # Create your models here.
+
 class About(models.Model):
 
     about_name = models.CharField(max_length=120)
     about_me = models.TextField(max_length=None)
-    about_pic = models.ImageField(upload_to='ninek_site')
+    about_pic = models.ImageField(upload_to='img')
 
     def __unicode__(self):
         return self.about_name
@@ -36,7 +37,7 @@ class Page(models.Model):
     author_name = models.CharField(max_length=120)
     date_created = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
-    upload_image = models.ImageField(upload_to='ninek_site')
+    upload_image = models.ImageField(upload_to='img')
     page_content = models.TextField(max_length=None)
     slug = models.SlugField(unique=True)
 

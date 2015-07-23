@@ -1,6 +1,8 @@
 {% extends 'base.html'%}
-{% block body_block %}
+{% load staticfiles %}
+{% block content %}
 <br>
+<img src="{% static page.upload_image.url %}"/>
 <h2>{{ page_title }}</h2>
 <h3>By: {{ page.author_name }} | {{ page.date_created }} </h3>
 
