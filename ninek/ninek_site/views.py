@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import About, Page, Category
+from .models import About, Page, Category, Media
 # Create your views here.
 def about(request):
 
@@ -57,3 +57,9 @@ def page(request, page_name_slug):
     except Page.DoesNotExist:
         pass
     return render(request, 'ninek_site/page.html', context_dict)
+    
+def media(request):
+    context = {}
+    media = Media.objects.all()
+    context['medias'] = media
+    return render(request, 'ninek_site/media.html', context)

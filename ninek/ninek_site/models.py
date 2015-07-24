@@ -44,3 +44,13 @@ class Page(models.Model):
 
     def __unicode__(self):
         return self.title
+
+class Media(models.Model):
+    images = models.ImageField(upload_to='img')
+    audio = models.FileField(upload_to='img', blank=True)
+    title = models.CharField(max_length=120)
+    author = models.CharField(max_length=120)
+    social_media = models.URLField(blank=True)
+    
+    def __unicode__(self):
+        return self.title

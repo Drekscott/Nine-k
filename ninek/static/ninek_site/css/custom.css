@@ -1,0 +1,26 @@
+#section-right{
+    border-radius: 25px;
+    border: 2px solid gold;
+    padding: 20px; 
+    width: 50%;
+    height: 60%; 
+    float: center;
+    margin-left: 15%;
+    background-color: white;
+    margin-top: -905px;
+    max-width: 100%;
+    position: center;
+    text-align: center;
+}
+#section-left{
+    border-radius: 25px;
+    border: 2px solid gold;
+    padding: 20px; 
+    width: 40%;
+    height: 60%; 
+    float: left;
+    margin-left: -30%;
+    background-color: white;
+    max-width: 100%;
+  
+}

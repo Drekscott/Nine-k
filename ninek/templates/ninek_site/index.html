@@ -2,19 +2,11 @@
 
 {% block content%}
 <style>
-#section-left{
-    border-radius: 25px;
-    border: 2px solid gold;
-    padding: 20px; 
-    width: 40%;
-    height: 60%; 
-    float: left;
-    margin-left: -30%;
-  
-}
+
 h1 {
   color: gold;
 }
+
 </style>
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
@@ -63,7 +55,36 @@ h1 {
       </div>
     </div>
   </div>
+<!--  Image Content -->
+  <div class="container">
+  
+    <div id="section-right">
+    <h1>Artwork</h1>
+    <hr>
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for media in medias %}
+              <div class="post-preview">
+                      <h2 class="post-title">
+                        <p>{{ page.title }}</p>
+                      </h2>
+                      <img src="{{ media.images }}">
+
+                  <p class="post-meta">Posted by {{ media.author }}</p>
+              </div>
+              <hr>
+              {% endfor %}
+              <!-- Pager -->
+              <ul class="pager">
+                  <li class="next">
+                      <a href="#">Older Posts &rarr;</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </div>
+
+  </div>
 
 
-  <hr>
 {% endblock %}

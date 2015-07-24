@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<style>
+#section-left{
+    border-radius: 25px;
+    border: 2px solid gold;
+    padding: 20px; 
+    width: 50%;
+    height: 60%; 
+    float: center;
+    margin-left: 5%;
+    background-color: white;
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+</style>
+<br>
+<!-- Main Content -->
+
+
+<div class="container">
+  
+  <div id="section-left">
+  <h1>Artwork</h1>
+  <hr>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          {% for media in medias %}
+            <div class="post-preview">
+                    <h2 class="post-title">
+                      <p>{{ page.title }}</p>
+                    </h2>
+                    <img src="{{ media.images }}">
+
+                <p class="post-meta">Posted by {{ media.author }}</p>
+            </div>
+            <hr>
+            {% endfor %}
+            <!-- Pager -->
+            <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts &rarr;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+<p> {{ media.title }}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
