@@ -1,9 +1,7 @@
 <ul class="nav nav-list">
-    {% if categories %}
         {% for category in categories %}
             <li><a href="{% url 'ninek:category' category.slug %}">{{ category.name }}</a></li>
         {% endfor %}
     {% else %}
         <li>No categories at present.</li>
-   {% endif %}
 </ul>

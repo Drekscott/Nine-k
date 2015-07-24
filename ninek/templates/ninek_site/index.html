@@ -1,33 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content%}
+<style>
+#section-left{
+    border-radius: 25px;
+    border: 2px solid gold;
+    padding: 20px; 
+    width: 40%;
+    height: 60%; 
+    float: left;
+    margin-left: -30%;
+  
+}
+h1 {
+  color: gold;
+}
+</style>
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
-<header class="intro-header" img src="background-image: '/Users/dreytonscott/Django_Projects/Nine-k/ninek/static/James Rawson 11.png'">
+
+<header class="intro-header" style="background-image: url('media/img/photo-1422284763110-6d0edd657b13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
                     <h1>[NINEK]</h1>
-                    <hr class="small">
-                    <span class="subheading">You love us...</span>
+                    
+                    <span class="subheading" style="color:#FFD700;">You love us...</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
-  <div>
-    <h3>About me</h3>
-  {% for about_me in about_mes%}
-  <h4>{{ about_me.about_name }}</h4>
-  <p>{{ about_me.about_me }}</p>
-  <hr>
-  {% endfor %}
-  </div>
-
+  
   <!-- Main Content -->
+
   
   <div class="container">
+    
+    <div id="section-left">
     <h1>Top Stories</h1>
     <hr>
       <div class="row">
@@ -50,7 +61,9 @@
               </ul>
           </div>
       </div>
+    </div>
   </div>
+
 
   <hr>
 {% endblock %}

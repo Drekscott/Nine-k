@@ -5,4 +5,5 @@ register = template.Library()
 
 @register.inclusion_tag('ninek_site/category_list.html')
 def get_category_list():
-    return {'cats': Category.objects.all()}
+    category = Category.objects.all()[:5]
+    return {'category': category}

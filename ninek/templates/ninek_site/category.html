@@ -1,22 +1,51 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
     {% block content %}
-        <h1>{{ category_name }}</h1>
-        {% if category %}
-            {% if pages %}
-            <ul>
-                {% for page in pages %}
-                <h2><a href="{% url 'ninek:page' page.slug %}">{{ page.title }}</a></h2>
-                <h4>By: {{ page.author_name }} | {{ page.date_created }} </h4>
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('{{category.pic.url}}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1 style="color:gold;">{{ category_name }}</h1>
+                        <hr class="small"> 
+                        <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-                <p>{{ page.page_content|truncatewords_html:12 }}
-                  <hr>
-                {% endfor %}
-            </ul>
-            {% else %}
-                <strong>No pages currently in category.</strong>
-            {% endif %}
-        {% else %}
-            The specified category {{ category_name }} does not exist!
-        {% endif %}
+        <h1></h1>
+        <hr>
+        <div class="container">
+          
+          <div id="section-left">
+          <h1>Top Stories</h1>
+          <hr>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  {% for page in pages %}
+                    <div class="post-preview">
+                            <h2 class="post-title">
+                              <a href="{% url 'ninek:page' page.slug %}">{{ page.title }}</a>
+                            </h2>
+
+                        <p class="post-meta">Posted by {{ page.author_name }} | {{ page.date_created }}</p>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    <!-- Pager -->
+                    <ul class="pager">
+                        <li class="next">
+                          
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+
     {% endblock %}
