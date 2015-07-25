@@ -6,9 +6,9 @@
 #section-left{
     border-radius: 25px;
     border: 2px solid gold;
-    padding: 20px; 
+    padding: 20px;
     width: 50%;
-    height: 60%; 
+    height: 60%;
     float: center;
     margin-left: 5%;
     background-color: white;
@@ -16,16 +16,14 @@
     max-width: 100%;
 }
 
-img {
-  max-width: 100%;
-}
+
 </style>
 <br>
 <!-- Main Content -->
 
 
 <div class="container">
-  
+
   <div id="section-left">
   <h1>Artwork</h1>
   <hr>
@@ -34,9 +32,9 @@ img {
           {% for media in medias %}
             <div class="post-preview">
                     <h2 class="post-title">
-                      <p>{{ page.title }}</p>
+                      <p>{{ media.title }}</p>
                     </h2>
-                    <img src="{{ media.images }}">
+                    <img class="media-img" src="{{ media.images.url }}">
 
                 <p class="post-meta">Posted by {{ media.author }}</p>
             </div>

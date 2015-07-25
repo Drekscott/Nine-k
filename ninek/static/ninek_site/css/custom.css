@@ -1,26 +1,28 @@
 #section-right{
     border-radius: 25px;
     border: 2px solid gold;
-    padding: 20px; 
-    width: 50%;
-    height: 60%; 
-    float: center;
-    margin-left: 15%;
+    padding: 20px;
+    width: 500px;
+    height: auto;
+    margin-left: 150px;
     background-color: white;
-    margin-top: -905px;
     max-width: 100%;
-    position: center;
     text-align: center;
+    position: relative;
+    float: right;
+
 }
 #section-left{
+
     border-radius: 25px;
     border: 2px solid gold;
-    padding: 20px; 
-    width: 40%;
-    height: 60%; 
-    float: left;
-    margin-left: -30%;
+    padding: 20px;
+    width: 400px;
+    height: auto;
     background-color: white;
     max-width: 100%;
-  
+    float: left;
+}
+.media-img {
+  max-width: 100%;
 }

@@ -10,12 +10,12 @@ def index(request):
 
 
     context_dict = {}
-    about_me = About.objects.all()
-    context_dict['about_mes'] = about_me
     page_list = Page.objects.all().order_by('category', 'likes')[:5]
     category_list = Category.objects.order_by('-views')[:5]
     context_dict['categories'] = category_list
     context_dict['pages'] = page_list
+    media = Media.objects.all()
+    context_dict['medias'] = media
     return render(request, 'ninek_site/index.html', context_dict)
 
 def get_cat_list():
@@ -57,7 +57,7 @@ def page(request, page_name_slug):
     except Page.DoesNotExist:
         pass
     return render(request, 'ninek_site/page.html', context_dict)
-    
+
 def media(request):
     context = {}
     media = Media.objects.all()

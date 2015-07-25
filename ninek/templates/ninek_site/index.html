@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
-{% block content%}
+{% load staticfiles %}
+{% block content %}
 <style>
 
 h1 {
@@ -17,19 +17,45 @@ h1 {
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
                     <h1>[NINEK]</h1>
-                    
+
                     <span class="subheading" style="color:#FFD700;">You love us...</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
-  
+
   <!-- Main Content -->
 
-  
-  <div class="container">
-    
+
+<div class="container">
+    <div id="section-right">
+    <h1>Artwork</h1>
+    <hr>
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for media in medias %}
+              <div class="post-preview">
+                      <h2 class="post-title">
+                        <p>{{ media.title }}</p>
+                      </h2>
+                          <img class="media-img" src="{{ media.images.url }}">
+
+                  <p class="post-meta">Posted by {{ media.author }}</p>
+              </div>
+              <hr>
+              {% endfor %}
+              <!-- Pager -->
+              <ul class="pager">
+                  <li class="next">
+                      <a href="#">Older Posts &rarr;</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </div>
+
+
     <div id="section-left">
     <h1>Top Stories</h1>
     <hr>
@@ -54,35 +80,11 @@ h1 {
           </div>
       </div>
     </div>
-  </div>
+</div>
 <!--  Image Content -->
-  <div class="container">
-  
-    <div id="section-right">
-    <h1>Artwork</h1>
-    <hr>
-      <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            {% for media in medias %}
-              <div class="post-preview">
-                      <h2 class="post-title">
-                        <p>{{ page.title }}</p>
-                      </h2>
-                      <img src="{{ media.images }}">
 
-                  <p class="post-meta">Posted by {{ media.author }}</p>
-              </div>
-              <hr>
-              {% endfor %}
-              <!-- Pager -->
-              <ul class="pager">
-                  <li class="next">
-                      <a href="#">Older Posts &rarr;</a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-    </div>
+  <div class="container">
+
 
   </div>
 
