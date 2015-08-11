@@ -1,10 +1,10 @@
 #section-right{
-    border-radius: 25px;
+    border-radius: 5px;
     border: 2px solid gold;
     padding: 20px;
     width: 500px;
     height: auto;
-    background-color: white;
+    background-color: #303030;
     max-width: 100%;
     text-align: center;
     position: relative;
@@ -13,15 +13,49 @@
 }
 #section-left{
 
-    border-radius: 25px;
+    border-radius: 5px;
     border: 2px solid gold;
     padding: 20px;
     width: 500px;
     height: auto;
-    background-color: white;
+    background-color: #303030;
     max-width: 100%;
     float: left;
 }
 .media-img {
   max-width: 100%;
+}
+hr {
+  border-color: gold;
+}
+.fa-inverse{
+  color: black;
+}
+.next a{
+  background-color: black;
+}
+
+.media-container{
+  width: 700px;
+  height: auto;
+  float: right;
+  background-color: #303030;
+  border-radius: 5px;
+}
+.img-square{
+  width: 175px;
+  height: 175px;
+  float: left;
+  
+}
+.the-img{
+  width: 175px;
+  height: 175px;
+}
+.main-container{
+  width: 100%;
+  height: 1000px;
+}
+.media-header{
+  text-align: center;
 }

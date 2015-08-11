@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="media-container">
+
+       
+           {% for media in medias %}
+                   <img src="{{ media.images.url }}">
+
+</div>
+          {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

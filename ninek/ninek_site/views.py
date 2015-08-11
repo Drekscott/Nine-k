@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import About, Page, Category, Media
+from django.views.generic import ListView, DetailView
 # Create your views here.
 def about(request):
 
@@ -57,9 +58,14 @@ def page(request, page_name_slug):
     except Page.DoesNotExist:
         pass
     return render(request, 'ninek_site/page.html', context_dict)
-
-def media(request):
-    context = {}
-    media = Media.objects.all()
-    context['medias'] = media
-    return render(request, 'ninek_site/media.html', context)
+class MediaListView(ListView):
+    model = Media
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+        context = {}
+        context ['medias'] = Media.objects.all().order_by('title')
+        return context
+        
+class MediaDetailView(DetailView):
+    model = Media
+    
