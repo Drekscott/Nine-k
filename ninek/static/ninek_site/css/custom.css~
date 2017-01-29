@@ -24,8 +24,3 @@
 .media-img {
   max-width: 100%;
 }
-.about-section{
-font-size: 20px;
-margin:0 auto;	
-width:75%;
-}
